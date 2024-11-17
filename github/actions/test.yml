@@ -1,29 +1,29 @@
 name: First workflow
 on: [push, workflow_dispatch]
-  jobs:
-    lint:
-      - name: getting code
-        starts on: ubuntu-latest
-        uses: actions/checkout@v4
-      - name: installing dependencies
-        run: npm ci
-      - name: linting code
-        run: npm run lint
-    build:
-      needs: lint
-      - name: getting code
-        starts on: ubuntu-latest
-        uses: actions/checkout@v4
-      - name: installing dependencies
-        run: npm ci
-      - name: building app
-        run: npm run build
-    test:
-      needs: build
-      - name: getting code
-        starts on: ubuntu-latest
-        uses: actions/checkout@v4
-      - name: installing dependencies
-        run: npm ci
-      - name: testing app
-        run: npm run test
+jobs:
+  lint:
+    - name: getting code
+      starts on: ubuntu-latest
+      uses: actions/checkout@v4
+    - name: installing dependencies
+      run: npm ci
+    - name: linting code
+      run: npm run lint
+  build:
+    needs: lint
+    - name: getting code
+      starts on: ubuntu-latest
+      uses: actions/checkout@v4
+    - name: installing dependencies
+      run: npm ci
+    - name: building app
+      run: npm run build
+  test:
+    needs: build
+    - name: getting code
+      starts on: ubuntu-latest
+      uses: actions/checkout@v4
+    - name: installing dependencies
+      run: npm ci
+    - name: testing app
+      run: npm run test
