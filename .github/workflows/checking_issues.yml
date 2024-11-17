@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print issue event
-        run: echo "${{ toJSON(ginhub.event) }}"
+        run: echo "${{ toJSON(github.event) }}"
