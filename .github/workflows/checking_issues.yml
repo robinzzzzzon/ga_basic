@@ -1,0 +1,11 @@
+
+name: Second workflow
+on: 
+  issues:
+    types: [opened, reopened]
+jobs:
+  print_issue_event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print issue event
+        run: echo "${{ toJSON(ginhub.event) }}"
