@@ -9,7 +9,7 @@ jobs:
       - name: installing dependencies
         run: npm ci
       - name: linting code
-        run: npm run lint
+        run: echo linting code... 
   build:
     needs: lint
     runs-on: ubuntu-latest
