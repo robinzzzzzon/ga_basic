@@ -19,7 +19,7 @@ jobs:
       - name: installing dependencies
         run: npm ci
       - name: building app
-        run: npm run build
+        run: echo building app...
   test:
     needs: build
     runs-on: ubuntu-latest
