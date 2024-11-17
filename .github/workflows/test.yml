@@ -2,9 +2,9 @@ name: First workflow
 on: [push, workflow_dispatch]
 jobs:
   lint:
+    runs-on: ubuntu-latest
     steps:
       - name: getting code
-        runs-on: ubuntu-latest
         uses: actions/checkout@v4
       - name: installing dependencies
         run: npm ci
@@ -12,9 +12,9 @@ jobs:
         run: npm run lint
   build:
     needs: lint
+    runs-on: ubuntu-latest
     steps:
       - name: getting code
-        runs-on: ubuntu-latest
         uses: actions/checkout@v4
       - name: installing dependencies
         run: npm ci
@@ -22,9 +22,9 @@ jobs:
         run: npm run build
   test:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - name: getting code
-        runs-on: ubuntu-latest
         uses: actions/checkout@v4
       - name: installing dependencies
         run: npm ci
