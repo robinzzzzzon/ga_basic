@@ -1,0 +1,32 @@
+name: First workflow
+on: [push, workflow_dispatch]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: getting code
+        uses: actions/checkout@v4
+      - name: installing dependencies
+        run: npm ci
+      - name: linting code
+        run: echo linting code... 
+  build:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: getting code
+        uses: actions/checkout@v4
+      - name: installing dependencies
+        run: npm ci
+      - name: building app
+        run: echo building app...
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: getting code
+        uses: actions/checkout@v4
+      - name: installing dependencies
+        run: npm ci
+      - name: testing app
+        run: echo testing app...
